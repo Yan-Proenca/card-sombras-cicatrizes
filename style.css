@@ -1,3 +1,51 @@
+Você tem razão, peço desculpas pelo erro. Vamos corrigir o código para que o brilho seja fino e passe apenas no card, sem afetar o header e o footer.
+
+1. Ajuste do pseudo-elemento ::before:
+
+Vamos usar um gradiente linear mais fino e ajustar a posição inicial para que o brilho comece fora do card.
+
+CSS
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%; /* Inicia o brilho fora do card */
+  width: 30%; /* Largura do brilho fino */
+  height: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.2), transparent); /* Brilho sutil */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+}
+2. Ajuste da animação shine:
+
+Vamos ajustar a animação para que o brilho se mova apenas dentro do card.
+
+CSS
+
+@keyframes shine {
+  0% {
+    transform: translateX(0%); /* Inicia no início do card */
+  }
+  100% {
+    transform: translateX(300%); /* Move o brilho para o final do card */
+  }
+}
+3. Ajuste do hover:
+
+Vamos ativar a animação quando o mouse estiver sobre o card.
+
+CSS
+
+.card:hover::before {
+  opacity: 1;
+  animation: shine 0.5s linear; /* Animação linear para um movimento constante */
+}
+Código CSS completo:
+
+CSS
+
 * {
   margin: 0;
   padding: 0;
@@ -68,9 +116,9 @@ main {
   position: absolute;
   top: 0;
   left: -100%;
-  width: 100%;
+  width: 30%;
   height: 100%;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.1), transparent);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.2), transparent);
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
   pointer-events: none;
@@ -85,7 +133,7 @@ main {
 
 .card:hover::before {
   opacity: 1;
-  animation: shine 0.7s linear;
+  animation: shine 0.5s linear;
 }
 
 @keyframes darkRedBlackOscillation {
@@ -106,7 +154,7 @@ main {
     transform: translateX(0%);
   }
   100% {
-    transform: translateX(200%);
+    transform: translateX(300%);
   }
 }
 
