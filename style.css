@@ -1,7 +1,3 @@
-Claro, aqui está o código CSS completo com os ajustes para um brilho fino e que permanece dentro dos limites do card:
-
-CSS
-
 * {
   margin: 0;
   padding: 0;
@@ -71,12 +67,12 @@ main {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
-  width: 20%; /* Reduz ainda mais a largura */
+  left: -100%;
+  width: 100%;
   height: 100%;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.1), transparent); /* Diminui a intensidade */
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.1), transparent);
   opacity: 0;
-  transition: opacity 0.2s ease-in-out; /* Reduz a transição para um efeito mais rápido */
+  transition: opacity 0.3s ease-in-out;
   pointer-events: none;
 }
 
@@ -89,7 +85,7 @@ main {
 
 .card:hover::before {
   opacity: 1;
-  animation: shine 0.3s ease-in-out; /* Flash rápido */
+  animation: shine 0.7s linear;
 }
 
 @keyframes darkRedBlackOscillation {
@@ -107,10 +103,10 @@ main {
 
 @keyframes shine {
   0% {
-    transform: translateX(-100%);
+    transform: translateX(0%);
   }
   100% {
-    transform: translateX(100%);
+    transform: translateX(200%);
   }
 }
 
