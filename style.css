@@ -72,11 +72,11 @@ main {
   position: absolute;
   top: 0;
   left: 0;
-  width: 30%; /* Redução da largura do brilho */
+  width: 20%; /* Reduz ainda mais a largura */
   height: 100%;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.15), transparent); /* Redução da intensidade do brilho */
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.1), transparent); /* Diminui a intensidade */
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.2s ease-in-out; /* Reduz a transição para um efeito mais rápido */
   pointer-events: none;
 }
 
@@ -89,7 +89,7 @@ main {
 
 .card:hover::before {
   opacity: 1;
-  animation: shine 0.4s ease-in-out; /* Redução da duração da animação para um brilho mais rápido */
+  animation: shine 0.3s ease-in-out; /* Flash rápido */
 }
 
 @keyframes darkRedBlackOscillation {
