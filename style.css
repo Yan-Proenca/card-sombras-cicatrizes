@@ -1,3 +1,7 @@
+Claro, aqui está o código CSS completo com os ajustes para um brilho fino e que permanece dentro dos limites do card:
+
+CSS
+
 * {
   margin: 0;
   padding: 0;
@@ -47,7 +51,7 @@ main {
 }
 
 .card {
-  position: relative; /* Adicionado para posicionar o pseudo-elemento */
+  position: relative;
   width: 310px;
   height: 450px;
   background-color: #2d2b2b;
@@ -60,7 +64,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* Adicionado para evitar que o brilho vaze */
+  overflow: hidden;
 }
 
 .card::before {
@@ -68,14 +72,13 @@ main {
   position: absolute;
   top: 0;
   left: 0;
-  width: 50%;
+  width: 30%; /* Redução da largura do brilho */
   height: 100%;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.15), transparent); /* Redução da intensidade do brilho */
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
   pointer-events: none;
 }
-
 
 .card:hover {
   transform: translateY(-25px) translate(5px, -5px) rotate(4deg);
@@ -84,10 +87,9 @@ main {
   animation: darkRedBlackOscillation 0.4s infinite alternate;
 }
 
-
 .card:hover::before {
   opacity: 1;
-  animation: shine 0.5s ease-in-out;
+  animation: shine 0.4s ease-in-out; /* Redução da duração da animação para um brilho mais rápido */
 }
 
 @keyframes darkRedBlackOscillation {
@@ -103,7 +105,6 @@ main {
   }
 }
 
-
 @keyframes shine {
   0% {
     transform: translateX(-100%);
@@ -112,7 +113,6 @@ main {
     transform: translateX(100%);
   }
 }
-
 
 .card img {
   width: 180px;
