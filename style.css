@@ -1,136 +1,138 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-body {
-  color: #C89B3C;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background-image: url("assets/download.jfif");
-  background-size: cover;
-  background-position: center;
-}
-
-header {
-  background-color: #131212;
-  height: 100px;
-  color: rgb(139, 0, 0);
-  text-align: center;
-  align-content: center;
-  font-size: 30px;
-  font-weight: bold;
-  padding: 20px;
-  text-shadow: 2px 2px 5px red;
-}
-
-header:hover {
-  transform: scale(1.0);
-}
-
-header:hover h1 {
-  color: #C89B3C;
-  text-shadow: 2px 2px 5px #C89B3C;
-}
-
-main {
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding: 30px;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.card {
-  width: 310px;
-  height: 450px;
-  background-color: #2d2b2b;
-  border-radius: 20px;
-  box-shadow: 5px 5px 20px rgba(139, 0, 0, 0.7);
-  padding: 7px 10px;
-  margin: 10px 5px;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.card:hover {
-  transform: translateY(-25px) translate(5px, -5px) rotate(4deg);
-  box-shadow: 0 0 20px 5px #C89B3C;
-  background-color: rgb(0, 0, 0);
-  animation: darkRedBlackOscillation 0.4s infinite alternate;
-}
-
-@keyframes darkRedBlackOscillation {
-  0% {
-    background-color: #000000;
-    box-shadow: 0 0 15px rgba(139, 0, 0, 0.7);
-    border-color: rgba(139, 0, 0, 0.7);
+  
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-  100% {
-    background-color: #111111;
-    box-shadow: 0 0 20px 5px #C89B3C;
-    border-color: #C89B3C;
+  
+  body {
+    color: #C89B3C;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url("assets/download.jfif");
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo preto com 50% de transparência */
   }
-}
-
-.card img {
-  width: 180px;
-  object-fit: cover;
-  border-radius: 20px;
-  border: 4px black;
-  box-shadow: 5px 5px 20px rgba(139, 0, 0, 0.7);
-}
-
-.card:hover img {
-  transform: scale(1.1);
-  box-shadow: 5px 5px 30px rgba(200, 155, 60, 0.8);
-}
-
-.card h2 {
-  margin: 10px 0;
-  color: rgb(139, 0, 0);
-}
-
-.card:hover h2 {
-  color: #C89B3C;
-}
-
-.card p {
-  font-size: 18px;
-  color: rgb(255, 255, 255);
-  transition: color 1.5s ease-in-out;
-}
-
-.card:hover p {
-  color: #C89B3C;
-  text-shadow: 2px 2px 5px #C89B3C;
-}
-
-footer {
-  background-color: #131212;
-  text-align: center;
-  padding: 15px;
-  color: rgb(139, 0, 0);
-  font-weight: bold;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 1%;
-}
-
-footer:hover {
-  transform: scale(1.0);
-}
-
-footer:hover p {
-  color: #C89B3C;
-}
+  header {
+    background-color: #000000; /* Preto, ok */
+    height: 125px;
+    color: #C89B3C; /* Tom dourado para o texto do cabeçalho */
+    text-align: center;
+    align-content: center;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px;
+    text-shadow: 2px 2px 5px #b8860b; /* Tom mais escuro de dourado para a sombra */
+  }
+  
+  header:hover {
+    transform: scale(1.0);
+  }
+  
+  header:hover h1 {
+    color: #F5F5DC; /* Bege claro ao passar o mouse */
+    text-shadow: 2px 2px 5px #C89B3C; /* Sombra dourada ao passar o mouse */
+  }
+  
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .card {
+    width: 310px;
+    height: 450px;
+    background-color: #050505; /* Preto bem escuro, ok */
+    border-radius: 20px;
+    box-shadow: 5px 5px 20px rgba(139, 0, 0, 0.7); /* Sombra vermelha escura, ok */
+    padding: 7px 10px;
+    margin: 10px 5px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card:hover {
+    transform: translateY(-25px) translate(5px, -5px) rotate(4deg);
+    box-shadow: 0 0 20px 5px #C89B3C; /* Sombra dourada ao passar o mouse */
+    background-color: rgb(0, 0, 0); /* Preto */
+    animation: darkRedBlackOscillation 0.4s infinite alternate;
+  }
+  
+  @keyframes darkRedBlackOscillation {
+    0% {
+      background-color: #000000; /* Preto */
+      box-shadow: 0 0 15px rgba(139, 0, 0, 0.7); /* Sombra vermelha escura */
+      border-color: rgba(139, 0, 0, 0.7);
+    }
+    100% {
+      background-color: #111111; /* Preto mais claro */
+      box-shadow: 0 0 20px 5px #C89B3C; /* Sombra dourada */
+      border-color: #C89B3C;
+    }
+  }
+  
+  .card img {
+    width: 180px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 4px black; /* Preto, ok */
+    box-shadow: 5px 5px 20px rgba(139, 0, 0, 0.7); /* Sombra vermelha escura */
+  }
+  
+  .card:hover img {
+    transform: scale(1.1);
+    box-shadow: 5px 5px 30px rgba(200, 155, 60, 0.8); /* Sombra dourada ao passar o mouse */
+  }
+  
+  .card h2 {
+    margin: 10px 0;
+    color: #C89B3C; /* Tom dourado */
+  }
+  
+  .card:hover h2 {
+    color: #F5F5DC; /* Bege claro ao passar o mouse */
+  }
+  
+  .card p {
+    font-size: 18px;
+    color: #FFFFFF; /* Branco */
+    transition: color 1.5s ease-in-out;
+  }
+  
+  .card:hover p {
+    color: #F5F5DC; /* Bege claro ao passar o mouse */
+    text-shadow: 2px 2px 5px #C89B3C; /* Sombra dourada ao passar o mouse */
+  }
+  
+  footer {
+    background-color: #131212; /* Preto */
+    text-align: center;
+    padding: 15px;
+    color: #C89B3C; /* Tom dourado */
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1%;
+  }
+  
+  footer:hover {
+    transform: scale(1.0);
+  }
+  
+  footer:hover p {
+    color: #F5F5DC; /* Bege claro ao passar o mouse */
+  }
