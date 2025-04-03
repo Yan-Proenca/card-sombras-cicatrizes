@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personagens Temidos</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+    
+
+    
+    .card.audio-playing {
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* Added transform to transition */
+  transform: translateY(-15px) scale(1.05) rotate(3deg);
+  box-shadow: 0 0 20px 5px #C89B3C;
+  background-color: rgb(0, 0, 0);
+  animation: darkRedBlackOscillation 0.4s infinite alternate;
+}
+
+.card.audio-playing::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  background-image: linear-gradient(180deg,  rgb(255, 153, 0), rgb(255, 172, 48));
+  height: 150%;
+  transition: opacity 0.25s linear; /* Changed to opacity transition */
+  opacity: 1; /* Make it visible when audio is playing */
+  animation: rotBGing 3s linear infinite; /* Assuming rotBGing is defined elsewhere */
+}
+
+.card.audio-playing img {
+        animation: blink 1s infinite alternate; /* Animação de piscar */
+        transform: scale(1.1);
+        box-shadow: 5px 5px 30px rgba(200, 155, 60, 0.8);
+    }
+
+
+    .card.audio-playing p { 
+        color: #C89B3C;
+        text-shadow: 2px 2px 5px #C89B3C;
+    }
+
+
+     
+    .card.audio-playing h2 {
+    color: #C89B3C;
+}
+
+
+
+
+
+
+
+
+</style>
+
+</head>
+<body>
+    <header>
+        <h1>Sombras e Cicatrizes </h1>
+
+    </header>
+ 
+
+    <main>
+      
+    
+    </div>
+      
+      
+
+
+       
+        <div class="card" onclick="playAudio('audio1')">
+            <img src="assets/thomas shelby.png" width="100px">
+            <h2>Thomas Shelby</h2> 
+            
+          
+           <p> Líder dos Peaky Blinders, uma gangue criminosa de Birmingham. Tommy Shelby é o líder inteligente e estratégico, uma poderosa família. Veterano da Primeira Guerra Mundial, ele usa sua astúcia para guiar a família através de desafios, navalhas, apostas e negócios complexos.
+
+            </p>
+            <audio id="audio1" src="audio/cena-dublada-tem-sangue-na-minha-mão-thomas-shelby.mp3"></audio>
+            
+
+        </div>
+
+
+       
+
+
+        <div class="card" onclick="playAudio('audio2')">
+            <img src="assets/walter white.png" width="100px">
+            <h2>Walter White</h2>
+            <p>Professor de química, ao ser diagnosticado com câncer, entra no comércio de metanfetamina para garantir o futuro de sua família, transformando-se em Heisenberg, um dos mais notáveis traficantes dos Estados Unidos.
+
+ </p>
+ <audio id="audio2" src="audio/walter-white--breaking-bad--edit-dublado.mp3"></audio>
+
+        </div>
+
+
+
+        <div class="card" onclick="playAudio('audio3')">
+            <img src="assets/billy bruto.png" width="100px">
+            <h2>Bily Bruto</h2>
+            <p> Odiador número um dos super-heróis corrompidos. Líder dos The Boys, ele busca vingança contra o Homelander e a Vought por tudo 
+                que fizeram com sua esposa. Sarcástico, brutal e impiedoso, Butcher não mede esforços para eliminar supers.</p>
+            <audio id="audio3" src="audio/the-boys-nivelei-o-jogo-edit-bruto.mp3"></audio>
+
+        </div>
+
+        <div class="card" onclick="playAudio('audio4')">
+            <img src="assets/troap de elite.png" width="100px">
+            <h2>Capitão Nascimento</h2>
+            <p>Líder do BOPE (Batalhão de Operações Policiais Especiais) do Rio de Janeiro, é um policial linha-dura que combate o tráfico nas 
+                favelas sem piedade. "Missão dada é missão cumprida", ele representa a dureza da guerra urbana contra o crime. </p>
+                <audio id="audio4"   src="audio/tropa-de-elite--bope.mp3"></audio>
+              
+        </div>
+
+
+        <div class="card" onclick="playAudio('audio5')">
+            <img src="assets/exterminador.png" width="100px">
+            <h2>Exterminador do Futuro</h2>
+            <p> O T-800, interpretado por Arnold Schwarzenegger, é um ciborgue assassino enviado do futuro pela Skynet para exterminar Sarah 
+                Connor e impedir o nascimento de John Connor, líder da resistência humana contra as máquinas. </p>
+                <audio id= "audio5"   src="audio/terminator-2-judgement-day-edit--akiuara---sleepwalker-slowed.mp3"></audio>
+
+        </div>
+
+        <div class="card" onclick="playAudio('audio6')">
+            <img src="assets/the rock.png" width="100px">
+            <h2>Homem de Pedra</h2>
+            <p> Todos os personagens feito pelo THE ROCK são bons... (Menos aquele do Egito que era um Scorpião) então por que não... ser o próprio homem de pedra? como por exemplo... o Luck Hobs?
+
+            </p>
+            <audio id= "audio6"   src="audio/its-about-drive-its-about-power-we-stay-hungry-we-devour-uncensored-hq.mp3"></audio>
+
+
+        </div>
+
+
+        <div class="card" onclick="playAudio('audio7')">
+            <img src="assets/rambo.png" width="100px">
+            <h2>Rambo</h2>
+            <p> John Rambo é um veterano da Guerra do Vietnã altamente treinado em guerrilha e sobrevivência. Após ser perseguido por policiais corruptos, ele inicia uma guerra de um homem só, expondo o desprezo e abandono que os veteranos enfrentam ao retornar para casa.</p>
+            <audio id= "audio7"   src="audio/rambo-edit-pra-mim-a-vida-cívil-não-é-nada-rambo.mp3"></audio>
+        </div>
+
+
+        <div class="card" onclick="playAudio('audio8')">
+            <img src="assets/esparta.png" width="100px">
+            <h2>Rei Leônidas</h2>
+            <p> O rei de Esparta que liderou 300 guerreiros contra o imenso exército persa do rei Xerxes na Batalha das Termópilas. Famoso por sua bravura e táticas de combate, além da icônica frase: "This is Sparta!" antes de chutar um emissário persa em um poço.</p>
+            <audio id= "audio8"   src="audio/rei-leônidas-edit.mp3"></audio>
+        </div>
+
+
+        <div class="card" onclick="playAudio('audio9')">
+            <img src="assets/jack reacher.png" width="100px">
+            <h2>Jack Reacher</h2>
+            <p> Ex-militar e investigador brilhante, Jack Reacher é um andarilho que resolve casos complexos com inteligência e brutalidade. Um lutador formidável, ele não se prende a nada nem a ninguém, vivendo pelas suas próprias regras.</p>
+            <audio id= "audio9"   src="audio/ele-ainda-deu-uma-chance--série-reacher.mp3"></audio>
+        </div>
+
+
+        <div class="card" onclick="playAudio('audio10')">
+            <img src="assets/alma negra.png" width="100px">
+            <h2>Alma Negra</h2>
+            <p> Um dos vilões mais temidos do Chapolin Colorado, Alma Negra é um pirata cruel e implacável. Comanda sua tripulação com punho de ferro e tem uma risada sinistra. Apesar do humor da série, ele é um vilão clássico, sempre tentando capturar suas vítimas para obter riquezas.</p>
+                <audio id= "audio10"   src="audio/alma-negra-edit--af1-slowed.mp3"></audio>
+
+        </div>
+
+
+        <div class="card" onclick="playAudio('audio11')">
+            <img src="assets/patrick sigma.png" width="100px">
+            <h2>Psicopata Patrick</h2>
+            <p> Rico, bonito e aparentemente bem-sucedido, Patrick Bateman é um investidor de Wall Street que esconde um lado psicótico e sádico. Comete assassinatos brutais por prazer, mostrando um vazio existencial e uma crítica feroz ao consumismo e à superficialidade dos anos 80.    </p>
+                <audio id= "audio11"   src="audio/edit-do-psicopata-americano.mp3"></audio>
+ 
+
+        </div>
+
+
+        <div class="card" onclick="playAudio('audio12')">
+            <img src="assets/halo.png" width="100px">
+            <h2>Master Chief</h2>
+            <p> John-117, ou Master Chief, é um super soldado da UNSC treinado desde criança para ser a arma perfeita contra ameaças alienígenas, especialmente os Covenant. Sempre com sua armadura icônica, é um guerreiro destemido,</p>
+            <audio id= "audio12"   src="audio/master-chief-edit.mp3"></audio>
+        </div>
+
+
+
+        <div class="card" onclick="playAudio('audio13')">
+            <img src="assets/john wick.png" width="100px">
+            <h2>John Wick</h2>
+            <p>Após a morte de sua esposa, ele recebe um filhote de cachorro como último presente dela. Quando mafiosos russos matam o cachorro e roubam seu carro, ele sai em uma jornada de vingança, mostrando suas habilidades implacáveis. John é um lutador altamente treinado e tem uma reputação lendária no submundo do crime.   </p>
+                <audio id= "audio13"   src="audio/john-wick-conversa-com-winston-shorts-short-johnwick-filmes.mp3"></audio>
+
+         
+        </div>
+
+
+        <div class="card" onclick="playAudio('audio14')">
+            <img src="assets/robocop.png" width="100px">
+            <h2>Robocop</h2>
+            <p>Alex Murphy, um policial de Detroit brutalmente assassinado por criminosos. Seu corpo é usado para criar um policial robótico pela empresa OCP. Apesar de sua programação, Murphy mantém fragmentos de sua humanidade, lutando contra criminosos e a corrupção da própria OCP.   </p>
+                <audio id= "audio14"   src="audio/alex-murphy-é-robocop-o-policial-do-futuro-1987-cena-final-robocop-dublado.mp3"></audio>
+          
+        </div>
+        
+
+
+
+        <div class="card" onclick="playAudio('audio15')">
+            <img src="assets/bad boys.png" width="100px">
+            <h2>Mike Lowrey e  Marcus Burnett </h2>
+            <p>  Um detetive charmoso, rico e destemido da polícia de Miami na franquia Bad Boys. Ao lado de seu parceiro Marcus Burnett , ele enfrenta traficantes e criminosos em missões. Mike é mais impulsivo e habilidoso no combate, enquanto Marcus é mais cauteloso.
+            </p>
+            <audio id= "audio15"   src="audio/o-que-você-acha-dessa-cena-filme-bad-boys-rise-or-die (1).mp3"></audio>
+        </div>
+
+
+
+        <div class="card" onclick="playAudio('audio16')">
+            <img src="assets/saul goodman.png" width="100px">
+            <h2>Saul Goodman</h2>
+            <p>Ele começou como um advogado trapaceiro tentando ganhar a vida, mas sua moralidade foi se deteriorando conforme se envolvia com o mundo do crime. Ele é carismático, engraçado e mestre em manipulação jurídica, ajudando criminosos a escaparem da lei.
+
+            
+                
+            </p>
+            <audio id= "audio16"   src="audio/comercial-é-melhor-ligar-para-o-saul-dublado.mp3"></audio>
+        </div>
+
+
+          
+        <div class="card" onclick="playAudio('audio17')">
+            <img src="asset/matrix.png" width="100px">
+            <h2>Neo</h2> 
+            
+          
+           <p> Neo, de Matrix, é o escolhido, um símbolo de revolução e poder absoluto. Dentro da simulação, desafia as leis da realidade e enfrenta seus inimigos com habilidades sobre-humanas.
+            </p>
+            <audio id="audio17" src="audios/neomatrix.mp3"></audio>
+            
+
+        </div>
+
+
+       
+
+
+        <div class="card" onclick="playAudio('audio18')">
+            <img src="asset/motoqueiro fantasma.png" width="100px">
+            <h2>Motoqueiro Fantasma</h2>
+            <p>Espírito da vingança, um justiceiro infernal que pune os culpados com sua corrente flamejante e olhar penetrante. Sua conexão com o sobrenatural o torna um dos guerreiros mais temidos.
+
+ </p>
+ <audio id="audio18" src="audios/motoqueiro-fantasma-o-cavaleiro-surge.mp3"></audio>
+
+        </div>
+
+
+
+        <div class="card" onclick="playAudio('audio19')">
+            <img src="asset/wolverine.png" width="100px">
+            <h2>Wolverine</h2>
+            <p> Um guerreiro feroz, dotado de um fator de cura que o torna praticamente imortal. Com suas garras de adamantium e espírito indomável, enfrenta qualquer desafio de cabeça erguida.</p>
+            <audio id="audio19" src="audios/wolverine.mp3"></audio>
+
+        </div>
+
+
+        
+        <div class="card" onclick="playAudio('audio20')">
+            <img src="asset/goodzila.png" width="100px">
+            <h2>Goodzilla</h2>
+            <p>Rei dos monstros, uma força imparável da natureza. Sua presença titânica simboliza tanto a destruição quanto a proteção, desafiando qualquer criatura que ouse ameaçar seu domínio. </p>
+                <audio id= "audio20"   src="audios/goodizilla.mp3"></audio>
+
+        </div>
+
+
+
+
+
+      
+</div>
+
+
+
+<script src="script.js"></script>
+
+
+
+
+
+</body>
+    </main>
+
+    <script src="script.js"></script>
+
+
+    <footer >
+      <p> Desenvolvido pelo Yan(Aluno SENAI)</p>
+
+  
+    </footer>
+</div>
+</body>
+</html>

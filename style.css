@@ -1,0 +1,238 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: #C89B3C;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image: url("assets/download.jfif");
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo preto com 50% de transparência */
+}
+
+/* Estilos do cabeçalho */
+header {
+  background-color: #000000; /* Preto, ok */
+  height: 125px;
+  color: #C89B3C; /* Tom dourado para o texto do cabeçalho */
+  text-align: center;
+  align-content: center;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 20px;
+  text-shadow: 2px 2px 5px #b8860b; /* Tom mais escuro de dourado para a sombra */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+header:hover {
+  transform: scale(1.0);
+}
+
+header:hover h1 {
+  color: #F5F5DC; /* Bege claro ao passar o mouse */
+  text-shadow: 2px 2px 5px #C89B3C; /* Sombra dourada ao passar o mouse */
+}
+
+/* Estilos da seção principal */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 30px;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Estilos do card */
+.card {
+  width: 310px;
+  height: 450px;
+  background-color: #050505; /* Preto bem escuro, ok */
+  border-radius: 20px;
+  box-shadow: 5px 5px 20px rgba(139, 0, 0, 0.7); /* Sombra vermelha escura, ok */
+  padding: 7px 10px;
+  margin: 10px 5px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Adicionado para posicionar ::before e ::after */
+  overflow: hidden; /* Garante que os pseudo-elementos fiquem dentro do card */
+
+
+}
+
+.card:hover {
+  transform: translateY(-25px) translate(5px, -5px) rotate(4deg);
+  box-shadow: 0 0 20px 5px #C89B3C; /* Sombra dourada ao passar o mouse */
+  background-color: rgb(0, 0, 0); /* Preto */
+  animation: darkRedBlackOscillation 0.4s infinite alternate;
+
+}
+
+@keyframes darkRedBlackOscillation {
+  0% {
+    background-color: #000000; /* Preto */
+    box-shadow: 0 0 15px rgba(139, 0, 0, 0.7); /* Sombra vermelha escura */
+    border-color: rgba(139, 0, 0, 0.7);
+  }
+  100% {
+    background-color: #111111; /* Preto mais claro */
+    box-shadow: 0 0 20px 5px #C89B3C; /* Sombra dourada */
+    border-color: #C89B3C;
+  }
+}
+
+.card img {
+  width: 180px;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 4px black; /* Preto, ok */
+  box-shadow: 5px 5px 20px rgba(139, 0, 0, 0.7); /* Sombra vermelha escura */
+}
+
+.card:hover img {
+  transform: scale(1.1);
+  box-shadow: 5px 5px 30px rgba(200, 155, 60, 0.8); /* Sombra dourada ao passar o mouse */
+ 
+}
+
+.card h2 {
+  margin: 10px 0;
+  color: #C89B3C; /* Tom dourado */
+  z-index: 1; /* Garante que o título fique acima dos pseudo-elementos */
+}
+
+.card:hover h2 {
+  color: #F5F5DC; /* Bege claro ao passar o mouse */
+}
+
+.card p {
+  font-size: 18px;
+  color: #FFFFFF; /* Branco */
+  transition: color 1.5s ease-in-out;
+  z-index: 1; /* Garante que o parágrafo fique acima dos pseudo-elementos */
+}
+
+.card:hover p {
+  color: #F5F5DC; /* Bege claro ao passar o mouse */
+  text-shadow: 2px 2px 5px #C89B3C; /* Sombra dourada ao passar o mouse */
+}
+
+/* Estilos do rodapé */
+footer {
+  background-color: #131212; /* Preto */
+  text-align: center;
+  padding: 15px;
+  color: #C89B3C; /* Tom dourado */
+  font-weight: bold;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1%;
+}
+
+footer:hover {
+  transform: scale(1.0);
+}
+
+footer:hover p {
+  color: #F5F5DC; /* Bege claro ao passar o mouse */
+}
+
+
+
+
+
+
+
+
+
+@keyframes rotBGing {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+.card h2 {
+  z-index: 1;
+  color: white;
+  font-size: 2em;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  background-image: linear-gradient(180deg, rgba(255, 196, 4, 0.7), rgba(255, 0, 0, 0.7));
+  height: 150%;
+  transition: all 0.25s linear;
+  opacity: 0; /* Initially hidden */
+}
+
+
+/* Activate animation on hover or focus */
+.card:hover::before,
+.card:focus::before,
+.card.animate-border::before { /* Add this line */
+  opacity: 1;
+  animation: rotBGing 3s linear infinite;
+}
+
+
+
+
+/* CARD */
+
+.card {
+  position: relative; /* Para posicionar os pseudo-elementos */
+  overflow: hidden; /* Garante que a animação fique dentro das bordas */
+  /* Outros estilos do card aqui */
+}
+
+
+
+.card::after {
+  content: "";
+  position: absolute;
+  background: inherit; /* Herda o background do card */
+  inset: 5px; /* Cria uma borda interna */
+  border-radius: 10px; /* Arredondamento da borda interna */
+  z-index: 0; /* Coloca atrás do conteúdo do card */
+}
+
+/* Estilos para o conteúdo do card (título, parágrafo, etc.) */
+.card h2,
+.card p,
+.card img {
+  z-index: 1; /* Garante que o conteúdo fique acima dos pseudo-elementos */
+  position: relative; /* Cria um contexto de empilhamento */
+}
+
+
+/* Pseudo-elemento ::after para o card (borda interna) */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border-radius: 15px;
+  z-index: 0; /* Garante que fique atrás do conteúdo do card */
+}
+
+
+
