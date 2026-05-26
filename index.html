@@ -1,318 +1,283 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="bg-black text-white scroll-behavior-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personagens Temidos</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Personagens Temidos | Sombras e Cicatrizes</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        oswald: ['Oswald', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="asset/chaves.png">
 
     <style>
-    
-
-    
-    .card.audio-playing {
-  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* Ad transformação na transição */
-  transform: translateY(-15px) scale(1.05) rotate(3deg);
-  box-shadow: 0 0 20px 5px #C89B3C;
-  background-color: rgb(0, 0, 0);
-  animation: darkRedBlackOscillation 0.4s infinite alternate;
-}
-
-.card.audio-playing::before {
-  content: '';
-  position: absolute;
-  width: 200px;
-  background-image: linear-gradient(180deg,  rgb(255, 153, 0), rgb(255, 172, 48));
-  height: 150%;
-  transition: opacity 0.25s linear; /* Alterado para opacity transition */
-  opacity: 1; /*  Torna visível quando o áudio está sendo reproduzido */
-  animation: rotBGing 3s linear infinite; /* Supondo que rotBGing esteja definido em outro lugar  */
-}
-
-.card.audio-playing img {
-        animation: blink 1s infinite alternate; /* Animação de piscar */
-        transform: scale(1.1);
-        box-shadow: 5px 5px 30px rgba(200, 155, 60, 0.8);
-    }
-
-
-    .card.audio-playing p { 
-        color: #C89B3C;
-        text-shadow: 2px 2px 5px #C89B3C;
-    }
-
-
-     
-    .card.audio-playing h2 {
-    color: #C89B3C;
-}
-
-
-
-
-
-
-
-
-</style>
-
+        /* Estado ativo quando o áudio está tocando */
+        .card-active {
+            border-color: #dc2626 !important; /* Vermelho-600 */
+            box-shadow: 0 0 25px rgba(220, 38, 38, 0.5);
+            transform: scale(1.03);
+            background-color: #111111;
+        }
+        .card-active img {
+            filter: drop-shadow(0 0 10px rgba(220, 38, 38, 0.6));
+            transform: scale(1.05);
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <h1>Sombras e 
-             Cicatrizes </h1>
+<body class="font-oswald min-h-screen flex flex-col justify-between tracking-wide selection:bg-red-600 selection:text-white">
 
+    <header class="border-b border-zinc-900 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50 py-6 text-center transition-all duration-300">
+        <h1 class="text-4xl md:text-5xl font-bold uppercase tracking-wider text-white">
+            Sombras e <span class="text-red-600 drop-shadow-[0_2px_10px_rgba(220,38,38,0.3)]">Cicatrizes</span>
+        </h1>
+        <p class="text-zinc-400 text-xs md:text-sm uppercase tracking-widest mt-2">Clique nos cards para ouvir a essência do perigo</p>
     </header>
- 
 
-    <main>
-      
-    
-    </div>
-      
-      
-
-
-       
-        <div class="card" onclick="playAudio('audio1')">
-            <img src="assets/thomas shelby.png" width="100px">
-            <h2>Thomas Shelby</h2> 
-            
-          
-           <p> Líder dos Peaky Blinders, uma gangue criminosa de Birmingham. Tommy Shelby é o líder inteligente e estratégico, uma poderosa família. Veterano da Primeira Guerra Mundial, ele usa sua astúcia para guiar a família através de desafios, navalhas, apostas e negócios complexos.
-
-            </p>
-            <audio id="audio1" src="audio/cena-dublada-tem-sangue-na-minha-mão-thomas-shelby.mp3"></audio>
-            
-
-        </div>
-
-
-       
-
-
-        <div class="card" onclick="playAudio('audio2')">
-            <img src="assets/walter white.png" width="100px">
-            <h2>Walter White</h2>
-            <p>Professor de química, ao ser diagnosticado com câncer, entra no comércio de metanfetamina para garantir o futuro de sua família, transformando-se em Heisenberg, um dos mais notáveis traficantes dos Estados Unidos.
-
- </p>
- <audio id="audio2" src="audio/walter-white--breaking-bad--edit-dublado.mp3"></audio>
-
-        </div>
-
-
-
-        <div class="card" onclick="playAudio('audio3')">
-            <img src="assets/billy bruto.png" width="100px">
-            <h2>Bily Bruto</h2>
-            <p> Odiador número um dos super-heróis corrompidos. Líder dos The Boys, ele busca vingança contra o Homelander e a Vought por tudo 
-                que fizeram com sua esposa. Sarcástico, brutal e impiedoso, Butcher não mede esforços para eliminar supers.</p>
-            <audio id="audio3" src="audio/the-boys-nivelei-o-jogo-edit-bruto.mp3"></audio>
-
-        </div>
-
-        <div class="card" onclick="playAudio('audio4')">
-            <img src="assets/troap de elite.png" width="100px">
-            <h2>Capitão Nascimento</h2>
-            <p>Líder do BOPE (Batalhão de Operações Policiais Especiais) do Rio de Janeiro, é um policial linha-dura que combate o tráfico nas 
-                favelas sem piedade. "Missão dada é missão cumprida", ele representa a dureza da guerra urbana contra o crime. </p>
-                <audio id="audio4"   src="audio/tropa-de-elite--bope.mp3"></audio>
-              
-        </div>
-
-
-        <div class="card" onclick="playAudio('audio5')">
-            <img src="assets/exterminador.png" width="100px">
-            <h2>Exterminador do Futuro</h2>
-            <p> O T-800, interpretado por Arnold Schwarzenegger, é um ciborgue assassino enviado do futuro pela Skynet para exterminar Sarah 
-                Connor e impedir o nascimento de John Connor, líder da resistência humana contra as máquinas. </p>
-                <audio id= "audio5"   src="audio/terminator-2-judgement-day-edit--akiuara---sleepwalker-slowed.mp3"></audio>
-
-        </div>
-
-        <div class="card" onclick="playAudio('audio6')">
-            <img src="assets/the rock.png" width="100px">
-            <h2>Homem de Pedra</h2>
-            <p> Todos os personagens feito pelo THE ROCK são bons... (Menos aquele do Egito que era um Scorpião) então por que não... ser o próprio homem de pedra? como por exemplo... o Luck Hobs?
-
-            </p>
-            <audio id= "audio6"   src="audio/its-about-drive-its-about-power-we-stay-hungry-we-devour-uncensored-hq.mp3"></audio>
-
-
-        </div>
-
-
-        <div class="card" onclick="playAudio('audio7')">
-            <img src="assets/rambo.png" width="100px">
-            <h2>Rambo</h2>
-            <p> John Rambo é um veterano da Guerra do Vietnã altamente treinado em guerrilha e sobrevivência. Após ser perseguido por policiais corruptos, ele inicia uma guerra de um homem só, expondo o desprezo e abandono que os veteranos enfrentam ao retornar para casa.</p>
-            <audio id= "audio7"   src="audio/rambo-edit-pra-mim-a-vida-cívil-não-é-nada-rambo.mp3"></audio>
-        </div>
-
-
-        <div class="card" onclick="playAudio('audio8')">
-            <img src="assets/esparta.png" width="100px">
-            <h2>Rei Leônidas</h2>
-            <p> O rei de Esparta que liderou 300 guerreiros contra o imenso exército persa do rei Xerxes na Batalha das Termópilas. Famoso por sua bravura e táticas de combate, além da icônica frase: "This is Sparta!" antes de chutar um emissário persa em um poço.</p>
-            <audio id= "audio8"   src="audio/rei-leônidas-edit.mp3"></audio>
-        </div>
-
-
-        <div class="card" onclick="playAudio('audio9')">
-            <img src="assets/jack reacher.png" width="100px">
-            <h2>Jack Reacher</h2>
-            <p> Ex-militar e investigador brilhante, Jack Reacher é um andarilho que resolve casos complexos com inteligência e brutalidade. Um lutador formidável, ele não se prende a nada nem a ninguém, vivendo pelas suas próprias regras.</p>
-            <audio id= "audio9"   src="audio/ele-ainda-deu-uma-chance--série-reacher.mp3"></audio>
-        </div>
-
-
-        <div class="card" onclick="playAudio('audio10')">
-            <img src="assets/alma negra.png" width="100px">
-            <h2>Alma Negra</h2>
-            <p> Um dos vilões mais temidos do Chapolin Colorado, Alma Negra é um pirata cruel e implacável. Comanda sua tripulação com punho de ferro e tem uma risada sinistra. Apesar do humor da série, ele é um vilão clássico, sempre tentando capturar suas vítimas para obter riquezas.</p>
-                <audio id= "audio10"   src="audio/alma-negra-edit--af1-slowed.mp3"></audio>
-
-        </div>
-
-
-        <div class="card" onclick="playAudio('audio11')">
-            <img src="assets/patrick sigma.png" width="100px">
-            <h2>Psicopata Patrick</h2>
-            <p> Rico, bonito e aparentemente bem-sucedido, Patrick Bateman é um investidor de Wall Street que esconde um lado psicótico e sádico. Comete assassinatos brutais por prazer, mostrando um vazio existencial e uma crítica feroz ao consumismo e à superficialidade dos anos 80.    </p>
-                <audio id= "audio11"   src="audio/edit-do-psicopata-americano.mp3"></audio>
- 
-
-        </div>
-
-
-        <div class="card" onclick="playAudio('audio12')">
-            <img src="assets/halo.png" width="100px">
-            <h2>Master Chief</h2>
-            <p> John-117, ou Master Chief, é um super soldado da UNSC treinado desde criança para ser a arma perfeita contra ameaças alienígenas, especialmente os Covenant. Sempre com sua armadura icônica, é um guerreiro destemido,</p>
-            <audio id= "audio12"   src="audio/master-chief-edit.mp3"></audio>
-        </div>
-
-
-
-        <div class="card" onclick="playAudio('audio13')">
-            <img src="assets/john wick.png" width="100px">
-            <h2>John Wick</h2>
-            <p>Após a morte de sua esposa, ele recebe um filhote de cachorro como último presente dela. Quando mafiosos russos matam o cachorro e roubam seu carro, ele sai em uma jornada de vingança, mostrando suas habilidades implacáveis. John é um lutador altamente treinado e tem uma reputação lendária no submundo do crime.   </p>
-                <audio id= "audio13"   src="audio/john-wick-conversa-com-winston-shorts-short-johnwick-filmes.mp3"></audio>
-
-         
-        </div>
-
-
-        <div class="card" onclick="playAudio('audio14')">
-            <img src="assets/robocop.png" width="100px">
-            <h2>Robocop</h2>
-            <p>Alex Murphy, um policial de Detroit brutalmente assassinado por criminosos. Seu corpo é usado para criar um policial robótico pela empresa OCP. Apesar de sua programação, Murphy mantém fragmentos de sua humanidade, lutando contra criminosos e a corrupção da própria OCP.   </p>
-                <audio id= "audio14"   src="audio/alex-murphy-é-robocop-o-policial-do-futuro-1987-cena-final-robocop-dublado.mp3"></audio>
-          
-        </div>
+    <main class="max-w-7xl mx-auto px-4 py-12 flex-grow w-full">
         
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
+            <div class="card group bg-zinc-950 border border-zinc-800 rounded-xl p-5 flex flex-col items-center text-center cursor-pointer transition-all duration-300 hover:border-red-600/50 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]" onclick="playAudio('audio1')">
+                <div class="w-24 h-24 mb-4 flex items-center justify-center overflow-hidden rounded-full bg-zinc-900 border border-zinc-800 group-hover:border-red-600 transition-colors duration-300">
+                    <img src="assets/thomas shelby.png" alt="Thomas Shelby" class="w-full h-full object-cover transition-transform duration-500">
+                </div>
+                <h2 class="text-xl font-bold uppercase text-white mb-3 tracking-wide group-hover:text-red-500 transition-colors duration-300">Thomas Shelby</h2> 
+                <p class="text-zinc-400 text-sm font-light leading-relaxed text-justify flex-grow">
+                    Líder dos Peaky Blinders, uma gangue criminosa de Birmingham. Tommy Shelby é o líder inteligente e estratégico de uma poderosa família. Veterano da Primeira Guerra Mundial, ele usa sua astúcia para guiar a família através de desafios, navalhas, apostas e negócios complexos.
+                </p>
+                <audio id="audio1" src="audio/cena-dublada-tem-sangue-na-minha-mão-thomas-shelby.mp3"></audio>
+            </div>
 
+            <div class="card group bg-zinc-950 border border-zinc-800 rounded-xl p-5 flex flex-col items-center text-center cursor-pointer transition-all duration-300 hover:border-red-600/50 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]" onclick="playAudio('audio2')">
+                <div class="w-24 h-24 mb-4 flex items-center justify-center overflow-hidden rounded-full bg-zinc-900 border border-zinc-800 group-hover:border-red-600 transition-colors duration-300">
+                    <img src="assets/walter white.png" alt="Walter White" class="w-full h-full object-cover transition-transform duration-500">
+                </div>
+                <h2 class="text-xl font-bold uppercase text-white mb-3 tracking-wide group-hover:text-red-500 transition-colors duration-300">Walter White</h2>
+                <p class="text-zinc-400 text-sm font-light leading-relaxed text-justify flex-grow">
+                    Professor de química, ao ser diagnosticado com câncer, entra no comércio de metanfetamina para garantir o futuro de sua família, transformando-se em Heisenberg, um dos mais notáveis traficantes dos Estados Unidos.
+                </p>
+                <audio id="audio2" src="audio/walter-white--breaking-bad--edit-dublado.mp3"></audio>
+            </div>
 
-        <div class="card" onclick="playAudio('audio15')">
-            <img src="assets/bad boys.png" width="100px">
-            <h2>Mike Lowrey e  Marcus Burnett </h2>
-            <p>  Um detetive charmoso, rico e destemido da polícia de Miami na franquia Bad Boys. Ao lado de seu parceiro Marcus Burnett , ele enfrenta traficantes e criminosos em missões. Mike é mais impulsivo e habilidoso no combate, enquanto Marcus é mais cauteloso.
-            </p>
-            <audio id= "audio15"   src="audio/o-que-você-acha-dessa-cena-filme-bad-boys-rise-or-die (1).mp3"></audio>
+            <div class="card group bg-zinc-950 border border-zinc-800 rounded-xl p-5 flex flex-col items-center text-center cursor-pointer transition-all duration-300 hover:border-red-600/50 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]" onclick="playAudio('audio3')">
+                <div class="w-24 h-24 mb-4 flex items-center justify-center overflow-hidden rounded-full bg-zinc-900 border border-zinc-800 group-hover:border-red-600 transition-colors duration-300">
+                    <img src="assets/billy bruto.png" alt="Billy Bruto" class="w-full h-full object-cover transition-transform duration-500">
+                </div>
+                <h2 class="text-xl font-bold uppercase text-white mb-3 tracking-wide group-hover:text-red-500 transition-colors duration-300">Billy Bruto</h2>
+                <p class="text-zinc-400 text-sm font-light leading-relaxed text-justify flex-grow">
+                    Odiador número um dos super-heróis corrompidos. Líder dos The Boys, ele busca vingança contra o Homelander e a Vought por tudo que fizeram com sua esposa. Sarcástico, brutal e impiedoso, Butcher não mede esforços para eliminar supers.
+                </p>
+                <audio id="audio3" src="audio/the-boys-nivelei-o-jogo-edit-bruto.mp3"></audio>
+            </div>
+
+            <div class="card group bg-zinc-950 border border-zinc-800 rounded-xl p-5 flex flex-col items-center text-center cursor-pointer transition-all duration-300 hover:border-red-600/50 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]" onclick="playAudio('audio4')">
+                <div class="w-24 h-24 mb-4 flex items-center justify-center overflow-hidden rounded-full bg-zinc-900 border border-zinc-800 group-hover:border-red-600 transition-colors duration-300">
+                    <img src="assets/troap de elite.png" alt="Capitão Nascimento" class="w-full h-full object-cover transition-transform duration-500">
+                </div>
+                <h2 class="text-xl font-bold uppercase text-white mb-3 tracking-wide group-hover:text-red-500 transition-colors duration-300">Capitão Nascimento</h2>
+                <p class="text-zinc-400 text-sm font-light leading-relaxed text-justify flex-grow">
+                    Líder do BOPE (Batalhão de Operações Policiais Especiais) do Rio de Janeiro, é um policial linha-dura que combate o tráfico nas favelas sem piedade. "Missão dada é missão cumprida", ele representa a dureza da guerra urbana contra o crime.
+                </p>
+                <audio id="audio4" src="audio/tropa-de-elite--bope.mp3"></audio>
+            </div>
+
+            <div class="card group bg-zinc-950 border border-zinc-800 rounded-xl p-5 flex flex-col items-center text-center cursor-pointer transition-all duration-300 hover:border-red-600/50 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]" onclick="playAudio('audio5')">
+                <div class="w-24 h-24 mb-4 flex items-center justify-center overflow-hidden rounded-full bg-zinc-900 border border-zinc-800 group-hover:border-red-600 transition-colors duration-300">
+                    <img src="assets/exterminador.png" alt="Exterminador do Futuro" class="w-full h-full object-cover transition-transform duration-500">
+                </div>
+                <h2 class="text-xl font-bold uppercase text-white mb-3 tracking-wide group-hover:text-red-500 transition-colors duration-300">Exterminador</h2>
+                <p class="text-zinc-400 text-sm font-light leading-relaxed text-justify flex-grow">
+                    O T-800 é um ciborgue assassino enviado do futuro pela Skynet para exterminar Sarah Connor e impedir o nascimento de John Connor, líder da resistência humana contra as máquinas.
+                </p>
+                <audio id="audio5" src="audio/terminator-2-judgement-day-edit--akiuara---sleepwalker-slowed.mp3"></audio>
+            </div>
+
+            <div class="card group bg-zinc-950 border border-zinc-800 rounded-xl p-5 flex flex-col items-center text-center cursor-pointer transition-all duration-300 hover:border-red-600/50 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]" onclick="playAudio('audio6')">
+                <div class="w-24 h-24 mb-4 flex items-center justify-center overflow-hidden rounded-full bg-zinc-900 border border-zinc-800 group-hover:border-red-600 transition-colors duration-300">
+                    <img src="assets/the rock.png" alt="The Rock" class="w-full h-full object-cover transition-transform duration-500">
+                </div>
+                <h2 class="text-xl font-bold uppercase text-white mb-3 tracking-wide group-hover:text-red-500 transition-colors duration-300">Homem de Pedra</h2>
+                <p class="text-zinc-400 text-sm font-light leading-relaxed text-justify flex-grow">
+                    Todos os personagens feitos pelo The Rock são marcantes... (Menos aquele escorpião digitalizado do Egito). Que tal focar na imponência bruta de personagens implacáveis como o agente Luke Hobbs?
+                </p>
+                <audio id="audio6" src="audio/its-about-drive-its-about-power-we-stay-hungry-we-devour-uncensored-hq.mp3"></audio>
+            </div>
+
+            <div class="card group bg-zinc-950 border border-zinc-800 rounded-xl p-5 flex flex-col items-center text-center cursor-pointer transition-all duration-300 hover:border-red-600/50 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]" onclick="playAudio('audio7')">
+                <div class="w-24 h-24 mb-4 flex items-center justify-center overflow-hidden rounded-full bg-zinc-900 border border-zinc-800 group-hover:border-red-600 transition-colors duration-300">
+                    <img src="assets/rambo.png" alt="Rambo" class="w-full h-full object-cover transition-transform duration-500">
+                </div>
+                <h2 class="text-xl font-bold uppercase text-white mb-3 tracking-wide group-hover:text-red-500 transition-colors duration-300">Rambo</h2>
+                <p class="text-zinc-400 text-sm font-light leading-relaxed text-justify flex-grow">
+                    John Rambo é um veterano da Guerra do Vietnã altamente treinado em guerrilha e sobrevivência. Perseguido por autoridades locais, inicia uma guerra de um homem só, expondo o trauma e abandono pós-guerra.
+                </p>
+                <audio id="audio7" src="audio/rambo-edit-pra-mim-a-vida-cívil-não-é-nada-rambo.mp3"></audio>
+            </div>
+
+            <div class="card group bg-zinc-950 border border-zinc-800 rounded-xl p-5 flex flex-col items-center text-center cursor-pointer transition-all duration-300 hover:border-red-600/50 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]" onclick="playAudio('audio8')">
+                <div class="w-24 h-24 mb-4 flex items-center justify-center overflow-hidden rounded-full bg-zinc-900 border border-zinc-800 group-hover:border-red-600 transition-colors duration-300">
+                    <img src="assets/esparta.png" alt="Rei Leônidas" class="w-full h-full object-cover transition-transform duration-500">
+                </div>
+                <h2 class="text-xl font-bold uppercase text-white mb-3 tracking-wide group-hover:text-red-500 transition-colors duration-300">Rei Leônidas</h2>
+                <p class="text-zinc-400 text-sm font-light leading-relaxed text-justify flex-grow">
+                    O rei de Esparta que liderou 300 guerreiros contra o imenso exército persa de Xerxes na Batalha das Termópilas. Famoso por sua bravura extrema, táticas letais e o icônico grito: "This is Sparta!".
+                </p>
+                <audio id="audio8" src="audio/rei-leônidas-edit.mp3"></audio>
+            </div>
+
+            <div class="card group bg-zinc-950 border border-zinc-800 rounded-xl p-5 flex flex-col items-center text-center cursor-pointer transition-all duration-300 hover:border-red-600/50 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]" onclick="playAudio('audio9')">
+                <div class="w-24 h-24 mb-4 flex items-center justify-center overflow-hidden rounded-full bg-zinc-900 border border-zinc-800 group-hover:border-red-600 transition-colors duration-300">
+                    <img src="assets/jack reacher.png" alt="Jack Reacher" class="w-full h-full object-cover transition-transform duration-500">
+                </div>
+                <h2 class="text-xl font-bold uppercase text-white mb-3 tracking-wide group-hover:text-red-500 transition-colors duration-300">Jack Reacher</h2>
+                <p class="text-zinc-400 text-sm font-light leading-relaxed text-justify flex-grow">
+                    Ex-major da polícia militar do exército, Reacher vive como um andarilho sem amarras. Um investigador brilhante que resolve problemas complexos combinando dedução genial com força e brutalidade cirúrgicas.
+                </p>
+                <audio id="audio9" src="audio/ele-ainda-deu-uma-chance--série-reacher.mp3"></audio>
+            </div>
+
+            <div class="card group bg-zinc-950 border border-zinc-800 rounded-xl p-5 flex flex-col items-center text-center cursor-pointer transition-all duration-300 hover:border-red-600/50 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]" onclick="playAudio('audio10')">
+                <div class="w-24 h-24 mb-4 flex items-center justify-center overflow-hidden rounded-full bg-zinc-900 border border-zinc-800 group-hover:border-red-600 transition-colors duration-300">
+                    <img src="assets/alma negra.png" alt="Alma Negra" class="w-full h-full object-cover transition-transform duration-500">
+                </div>
+                <h2 class="text-xl font-bold uppercase text-white mb-3 tracking-wide group-hover:text-red-500 transition-colors duration-300">Alma Negra</h2>
+                <p class="text-zinc-400 text-sm font-light leading-relaxed text-justify flex-grow">
+                    Um dos vilões mais temidos dos mares do Chapolin Colorado. Alma Negra é um pirata cruel que comanda sua tripulação com punho de ferro e uma risada sinistra de arrepiar os ossos.
+                </p>
+                <audio id="audio10" src="audio/alma-negra-edit--af1-slowed.mp3"></audio>
+            </div>
+
+            <div class="card group bg-zinc-950 border border-zinc-800 rounded-xl p-5 flex flex-col items-center text-center cursor-pointer transition-all duration-300 hover:border-red-600/50 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]" onclick="playAudio('audio11')">
+                <div class="w-24 h-24 mb-4 flex items-center justify-center overflow-hidden rounded-full bg-zinc-900 border border-zinc-800 group-hover:border-red-600 transition-colors duration-300">
+                    <img src="assets/patrick sigma.png" alt="Patrick Bateman" class="w-full h-full object-cover transition-transform duration-500">
+                </div>
+                <h2 class="text-xl font-bold uppercase text-white mb-3 tracking-wide group-hover:text-red-500 transition-colors duration-300">Patrick Bateman</h2>
+                <p class="text-zinc-400 text-sm font-light leading-relaxed text-justify flex-grow">
+                    Rico, vaidoso e bem-sucedido investidor de Wall Street que esconde um lado psicótico e sádico. Comete crimes brutais por prazer, evidenciando o vazio existencial e a futilidade da elite dos anos 80.
+                </p>
+                <audio id="audio11" src="audio/edit-do-psicopata-americano.mp3"></audio>
+            </div>
+
+            <div class="card group bg-zinc-950 border border-zinc-800 rounded-xl p-5 flex flex-col items-center text-center cursor-pointer transition-all duration-300 hover:border-red-600/50 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]" onclick="playAudio('audio12')">
+                <div class="w-24 h-24 mb-4 flex items-center justify-center overflow-hidden rounded-full bg-zinc-900 border border-zinc-800 group-hover:border-red-600 transition-colors duration-300">
+                    <img src="assets/halo.png" alt="Master Chief" class="w-full h-full object-cover transition-transform duration-500">
+                </div>
+                <h2 class="text-xl font-bold uppercase text-white mb-3 tracking-wide group-hover:text-red-500 transition-colors duration-300">Master Chief</h2>
+                <p class="text-zinc-400 text-sm font-light leading-relaxed text-justify flex-grow">
+                    John-117 é um super-soldado SPARTAN-II da UNSC treinado desde a infância para ser a arma definitiva da humanidade. Protegido por sua armadura Mjolnir, ele enfrenta ameaças interplanetárias implacavelmente.
+                </p>
+                <audio id="audio12" src="audio/master-chief-edit.mp3"></audio>
+            </div>
+
+            <div class="card group bg-zinc-950 border border-zinc-800 rounded-xl p-5 flex flex-col items-center text-center cursor-pointer transition-all duration-300 hover:border-red-600/50 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]" onclick="playAudio('audio13')">
+                <div class="w-24 h-24 mb-4 flex items-center justify-center overflow-hidden rounded-full bg-zinc-900 border border-zinc-800 group-hover:border-red-600 transition-colors duration-300">
+                    <img src="assets/john wick.png" alt="John Wick" class="w-full h-full object-cover transition-transform duration-500">
+                </div>
+                <h2 class="text-xl font-bold uppercase text-white mb-3 tracking-wide group-hover:text-red-500 transition-colors duration-300">John Wick</h2>
+                <p class="text-zinc-400 text-sm font-light leading-relaxed text-justify flex-grow">
+                    Um assassino lendário que havia se aposentado, mas retorna ao submundo do crime movido por uma fúria imparável após tirarem dele a última lembrança de sua falecida esposa. Conhecido como o "Baba Yaga".
+                </p>
+                <audio id="audio13" src="audio/john-wick-conversa-com-winston-shorts-short-johnwick-filmes.mp3"></audio>
+            </div>
+
+            <div class="card group bg-zinc-950 border border-zinc-800 rounded-xl p-5 flex flex-col items-center text-center cursor-pointer transition-all duration-300 hover:border-red-600/50 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]" onclick="playAudio('audio14')">
+                <div class="w-24 h-24 mb-4 flex items-center justify-center overflow-hidden rounded-full bg-zinc-900 border border-zinc-800 group-hover:border-red-600 transition-colors duration-300">
+                    <img src="assets/robocop.png" alt="RoboCop" class="w-full h-full object-cover transition-transform duration-500">
+                </div>
+                <h2 class="text-xl font-bold uppercase text-white mb-3 tracking-wide group-hover:text-red-500 transition-colors duration-300">RoboCop</h2>
+                <p class="text-zinc-400 text-sm font-light leading-relaxed text-justify flex-grow">
+                    O policial Alex Murphy é reconstruído como um ciborgue cibernético de segurança máxima após ser brutalmente executado. Enquanto combate o crime em Detroit, luta para resgatar sua antiga identidade e humanidade.
+                </p>
+                <audio id="audio14" src="audio/alex-murphy-é-robocop-o-policial-do-futuro-1987-cena-final-robocop-dublado.mp3"></audio>
+            </div>
+
+            <div class="card group bg-zinc-950 border border-zinc-800 rounded-xl p-5 flex flex-col items-center text-center cursor-pointer transition-all duration-300 hover:border-red-600/50 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]" onclick="playAudio('audio15')">
+                <div class="w-24 h-24 mb-4 flex items-center justify-center overflow-hidden rounded-full bg-zinc-900 border border-zinc-800 group-hover:border-red-600 transition-colors duration-300">
+                    <img src="assets/bad boys.png" alt="Bad Boys" class="w-full h-full object-cover transition-transform duration-500">
+                </div>
+                <h2 class="text-xl font-bold uppercase text-white mb-3 tracking-wide group-hover:text-red-500 transition-colors duration-300">Lowrey & Burnett</h2>
+                <p class="text-zinc-400 text-sm font-light leading-relaxed text-justify flex-grow">
+                    A dupla dinâmica de detetives da Divisão de Narcóticos de Miami. Combinando o estilo playboy e destemido de Mike Lowrey com o perfil familiar e cauteloso de Marcus Burnett em pura ação urbana.
+                </p>
+                <audio id="audio15" src="audio/o-que-você-acha-dessa-cena-filme-bad-boys-rise-or-die (1).mp3"></audio>
+            </div>
+
+            <div class="card group bg-zinc-950 border border-zinc-800 rounded-xl p-5 flex flex-col items-center text-center cursor-pointer transition-all duration-300 hover:border-red-600/50 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]" onclick="playAudio('audio16')">
+                <div class="w-24 h-24 mb-4 flex items-center justify-center overflow-hidden rounded-full bg-zinc-900 border border-zinc-800 group-hover:border-red-600 transition-colors duration-300">
+                    <img src="assets/saul goodman.png" alt="Saul Goodman" class="w-full h-full object-cover transition-transform duration-500">
+                </div>
+                <h2 class="text-xl font-bold uppercase text-white mb-3 tracking-wide group-hover:text-red-500 transition-colors duration-300">Saul Goodman</h2>
+                <p class="text-zinc-400 text-sm font-light leading-relaxed text-justify flex-grow">
+                    Advogado excêntrico e mestre na manipulação jurídica. Com sua lábia inigualável e moralidade flexível, constrói pontes perfeitas no submundo para livrar criminosos e cartéis de enrascadas com a lei.
+                </p>
+                <audio id="audio16" src="audio/comercial-é-melhor-ligar-para-o-saul-dublado.mp3"></audio>
+            </div>
+
+            <div class="card group bg-zinc-950 border border-zinc-800 rounded-xl p-5 flex flex-col items-center text-center cursor-pointer transition-all duration-300 hover:border-red-600/50 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]" onclick="playAudio('audio17')">
+                <div class="w-24 h-24 mb-4 flex items-center justify-center overflow-hidden rounded-full bg-zinc-900 border border-zinc-800 group-hover:border-red-600 transition-colors duration-300">
+                    <img src="asset/matrix.png" alt="Neo" class="w-full h-full object-cover transition-transform duration-500">
+                </div>
+                <h2 class="text-xl font-bold uppercase text-white mb-3 tracking-wide group-hover:text-red-500 transition-colors duration-300">Neo</h2>
+                <p class="text-zinc-400 text-sm font-light leading-relaxed text-justify flex-grow">
+                    O Escolhido do universo Matrix. Desafiando as barreiras e códigos da realidade simulada, ele domina artes marciais e dobra as leis da física para libertar a mente da humanidade do controle das máquinas.
+                </p>
+                <audio id="audio17" src="audios/neomatrix.mp3"></audio>
+            </div>
+
+            <div class="card group bg-zinc-950 border border-zinc-800 rounded-xl p-5 flex flex-col items-center text-center cursor-pointer transition-all duration-300 hover:border-red-600/50 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]" onclick="playAudio('audio18')">
+                <div class="w-24 h-24 mb-4 flex items-center justify-center overflow-hidden rounded-full bg-zinc-900 border border-zinc-800 group-hover:border-red-600 transition-colors duration-300">
+                    <img src="asset/motoqueiro fantasma.png" alt="Motoqueiro Fantasma" class="w-full h-full object-cover transition-transform duration-500">
+                </div>
+                <h2 class="text-xl font-bold uppercase text-white mb-3 tracking-wide group-hover:text-red-500 transition-colors duration-300">Motoqueiro Fantasma</h2>
+                <p class="text-zinc-400 text-sm font-light leading-relaxed text-justify flex-grow">
+                    O Espírito da Vingança. Um justiceiro sobrenatural com crânio flamejante que caça almas corruptas usando correntes místicas e o devastador Olhar da Penitência, punindo pecados sem clemência.
+                </p>
+                <audio id="audio18" src="audios/motoqueiro-fantasma-o-cavaleiro-surge.mp3"></audio>
+            </div>
+
+            <div class="card group bg-zinc-950 border border-zinc-800 rounded-xl p-5 flex flex-col items-center text-center cursor-pointer transition-all duration-300 hover:border-red-600/50 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]" onclick="playAudio('audio19')">
+                <div class="w-24 h-24 mb-4 flex items-center justify-center overflow-hidden rounded-full bg-zinc-900 border border-zinc-800 group-hover:border-red-600 transition-colors duration-300">
+                    <img src="asset/wolverine.png" alt="Wolverine" class="w-full h-full object-cover transition-transform duration-500">
+                </div>
+                <h2 class="text-xl font-bold uppercase text-white mb-3 tracking-wide group-hover:text-red-500 transition-colors duration-300">Wolverine</h2>
+                <p class="text-zinc-400 text-sm font-light leading-relaxed text-justify flex-grow">
+                    Logan é um mutante com instintos selvagens, garras retráteis revestidas de Adamantium indestrutível e um fator de cura celular acelerado que o torna virtualmente imortal em combate.
+                </p>
+                <audio id="audio19" src="audios/wolverine.mp3"></audio>
+            </div>
+
+            <div class="card group bg-zinc-950 border border-zinc-800 rounded-xl p-5 flex flex-col items-center text-center cursor-pointer transition-all duration-300 hover:border-red-600/50 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]" onclick="playAudio('audio20')">
+                <div class="w-24 h-24 mb-4 flex items-center justify-center overflow-hidden rounded-full bg-zinc-900 border border-zinc-800 group-hover:border-red-600 transition-colors duration-300">
+                    <img src="asset/goodzila.png" alt="Godzilla" class="w-full h-full object-cover transition-transform duration-500">
+                </div>
+                <h2 class="text-xl font-bold uppercase text-white mb-3 tracking-wide group-hover:text-red-500 transition-colors duration-300">Godzilla</h2>
+                <p class="text-zinc-400 text-sm font-light leading-relaxed text-justify flex-grow">
+                    O Rei dos Monstros. Um titã pré-histórico colossal despertado por radiação. Força absoluta da natureza que esmaga metrópoles inteiras e defende seu trono planetário com seu sopro atômico.
+                </p>
+                <audio id="audio20" src="audios/goodizilla.mp3"></audio>
+            </div>
+
         </div>
-
-
-
-        <div class="card" onclick="playAudio('audio16')">
-            <img src="assets/saul goodman.png" width="100px">
-            <h2>Saul Goodman</h2>
-            <p>Ele começou como um advogado trapaceiro tentando ganhar a vida, mas sua moralidade foi se deteriorando conforme se envolvia com o mundo do crime. Ele é carismático, engraçado e mestre em manipulação jurídica, ajudando criminosos a escaparem da lei.
-
-            
-                
-            </p>
-            <audio id= "audio16"   src="audio/comercial-é-melhor-ligar-para-o-saul-dublado.mp3"></audio>
-        </div>
-
-
-          
-        <div class="card" onclick="playAudio('audio17')">
-            <img src="asset/matrix.png" width="100px">
-            <h2>Neo</h2> 
-            
-          
-           <p> Neo, de Matrix, é o escolhido, um símbolo de revolução e poder absoluto. Dentro da simulação, desafia as leis da realidade e enfrenta seus inimigos com habilidades sobre-humanas.
-            </p>
-            <audio id="audio17" src="audios/neomatrix.mp3"></audio>
-            
-
-        </div>
-
-
-       
-
-
-        <div class="card" onclick="playAudio('audio18')">
-            <img src="asset/motoqueiro fantasma.png" width="100px">
-            <h2>Motoqueiro Fantasma</h2>
-            <p>Espírito da vingança, um justiceiro infernal que pune os culpados com sua corrente flamejante e olhar penetrante. Sua conexão com o sobrenatural o torna um dos guerreiros mais temidos.
-
- </p>
- <audio id="audio18" src="audios/motoqueiro-fantasma-o-cavaleiro-surge.mp3"></audio>
-
-        </div>
-
-
-
-        <div class="card" onclick="playAudio('audio19')">
-            <img src="asset/wolverine.png" width="100px">
-            <h2>Wolverine</h2>
-            <p> Um guerreiro feroz, dotado de um fator de cura que o torna praticamente imortal. Com suas garras de adamantium e espírito indomável, enfrenta qualquer desafio de cabeça erguida.</p>
-            <audio id="audio19" src="audios/wolverine.mp3"></audio>
-
-        </div>
-
-
-        
-        <div class="card" onclick="playAudio('audio20')">
-            <img src="asset/goodzila.png" width="100px">
-            <h2>Goodzilla</h2>
-            <p>Rei dos monstros, uma força imparável da natureza. Sua presença titânica simboliza tanto a destruição quanto a proteção, desafiando qualquer criatura que ouse ameaçar seu domínio. </p>
-                <audio id= "audio20"   src="audios/goodizilla.mp3"></audio>
-
-        </div>
-
-
-
-
-
-      
-</div>
-
-
-
-<script src="script.js"></script>
-
-
-
-
-
-</body>
     </main>
 
-    <script src="script.js"></script>
-
-
-    <footer >
-      <p> Desenvolvido pelo Yan(Aluno SENAI)</p>
-
-  
+    <footer class="border-t border-zinc-900 bg-zinc-950 py-4 text-center text-zinc-500 text-xs tracking-wider uppercase mt-12">
+        <p>Desenvolvido por <span class="text-zinc-300 font-medium hover:text-red-500 transition-colors duration-300">Yan (Aluno SENAI)</span></p>
     </footer>
-</div>
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,63 +1,35 @@
-
-  
-
-
 let currentAudio = null;
+let currentCard = null;
 
-function playAudio(id) {
-    // Pausa o áudio anterior, se houver
-    if (currentAudio) {
+function playAudio(audioId) {
+    const audio = document.getElementById(audioId);
+    // Encontra o card pai mais próximo do elemento de áudio clicado
+    const card = audio.closest('.card');
+
+    // Se já houver um áudio tocando, para ele
+    if (currentAudio && currentAudio !== audio) {
         currentAudio.pause();
         currentAudio.currentTime = 0;
-        currentAudio.parentElement.classList.remove('audio-playing'); // Remove o brilho do card anterior
+        if (currentCard) currentCard.classList.remove('card-active');
     }
 
-    // Toca o novo áudio
-    currentAudio = document.getElementById(id);
-    currentAudio.play();
-    currentAudio.parentElement.classList.add('audio-playing'); // Adiciona o brilho ao card atual
+    // Gerencia o áudio atual
+    if (audio.paused) {
+        audio.play();
+        card.classList.add('card-active');
+        currentAudio = audio;
+        currentCard = card;
 
-    // Remove o brilho quando o áudio termina
-    currentAudio.addEventListener('ended', () => {
-        currentAudio.parentElement.classList.remove('audio-playing');
-    }, { once: true }); // Garante que o evento seja removido após a execução
-}
-
-function stopAudio() {
-    if (currentAudio) {
-        currentAudio.pause();
-        currentAudio.currentTime = 0;
-        currentAudio.parentElement.classList.remove('audio-playing'); // Remove o brilho
+        // Remove a classe de destaque quando o áudio terminar sozinho
+        audio.onended = function() {
+            card.classList.remove('card-active');
+            currentAudio = null;
+            currentCard = null;
+        };
+    } else {
+        audio.pause();
+        card.classList.remove('card-active');
+        currentAudio = null;
+        currentCard = null;
     }
 }
-
-// Impede que o clique dentro do card dispare o stopAudio() imediatamente
-document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', (event) => {
-        event.stopPropagation(); // Impede que o evento de clique se propague para o document
-    });
-});
-
-// Quando clicar fora do card, o áudio para
-document.addEventListener("click", function() {
-    stopAudio();
-});
-
-// Adiciona a classe 'can-animate' aos cards para controlar a animação
-document.querySelectorAll('.card').forEach(card => {
-    card.classList.add('can-animate');
-});
-
-// Adiciona a animação quando o mouse entra no card
-document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.classList.add('animate-border');
-    });
-});
-
-// Remove a animação quando o mouse sai do card
-document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('mouseleave', () => {
-        card.classList.remove('animate-border');
-    });
-});
